@@ -13,30 +13,34 @@
 <body>
     <div class="Container">
         <div class="panel panel-success">
-            <div class="panel-heading">My NFL Roster</div>
-            <div class="panel-body">
-               
-                <div class="player-roster" id="roster">
-                   
-                </div>
-                <div class="player-form" id="playerForm">
-                    <form>
-                        <h4>Player Name: </h4>
+            <div class="panel-heading">
+                <h1> My NFL Roster </h1><br />
+                <form class="player form form-inline" role="form">
+                    <div class="form-group">
+                        <label for="playerName">Enter Player Name: </label>
                         <input type="text" id="playerName">
-                        <br>
-                        <h4>Player Position:</h4>
+                    </div>
+                    <div class="form-group">
+                        <label for="positions">Select Position:</label>
                         <select id="playerPosition" name="positions">
                             <option value="Quarterback">Quarterback</option>
                             <option value="Running Back">Running Back</option>
                             <option value="Wide Receiver">Wide Receiver</option>
                             <option value="Tight End">Tight End</option>
                         </select>
-                        <br>
-                        <h4>Player Number:</h4>
-                        <input type="number" id="playerNumber">
-                        
-                        <input type="button" id="submit" value="Submit" class="btn btn-primary">
-                    </form>
+                    </div>
+                    <label for="playerNumber">Enter Player Number:</label>
+                    <input type="number" id="playerNumber">
+                    <input type="button" id="submit" value="Submit" class="btn btn-success">
+                </form>
+
+            </div>
+            <div class="panel-body">
+               
+                <div class="player-roster" id="roster">
+                   
+                </div>
+               
 
 
                 </div>
