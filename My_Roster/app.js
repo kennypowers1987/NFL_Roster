@@ -1,17 +1,18 @@
-﻿
-function Player(name, position, number) {
-    playerCount++;
-    this.name = name;
-    this.position = position;
-    this.number = number;
-    this.id = playerCount;
-}
+﻿var playerRoster = {};
 
-var playerRoster = {};
+
+
+
 $(document).ready(function () {
    
     var playerCount = 0;
-   
+    function Player(name, position, number) {
+        playerCount++;
+        this.name = name;
+        this.position = position;
+        this.number = number;
+        this.id = playerCount;
+    }
 
 
     $("#submit").on('click', function () {
@@ -37,7 +38,7 @@ $(document).ready(function () {
     $("#roster").html("");
    
     for (i in playerRoster) {
-        $("#roster").append('<div class="player-card"> <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/"><input type="button" id="' + playerRoster[i].id + '" class="delete" value="Delete"><p id="pName">' + playerRoster[i].name + '</p><p id="pPosition">' + playerRoster[i].position + '</p><p id="pNumber">' + playerRoster[i].number + '</p></div>')
+        $("#roster").append('<div class="player-card"> <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/"><p id="' + playerRoster[i].id + '" class="delete glyphicon glyphicon-remove" value="Remove"><p id="pName"><h5><span class="label label-success"> Name: </span></h5>' + playerRoster[i].name + '</p><p id="pPosition"><h5><span class="label label-success">Position: </span></h5>' + playerRoster[i].position + '</p><p id="pNumber"><h5><span class="label label-success"> Number: </span></h5>' + playerRoster[i].number + '</p></div>')
        // $("#roster").append("Kenny");
     }
 

@@ -12,25 +12,30 @@
 
 <body>
     <div class="Container">
-        <div class="panel panel-default">
+        <div class="panel panel-success">
             <div class="panel-heading">My NFL Roster</div>
             <div class="panel-body">
-                Panel Content
+               
                 <div class="player-roster" id="roster">
-                    <span id="1">HA</span>
+                   
                 </div>
                 <div class="player-form" id="playerForm">
                     <form>
-                        Player Name:<br>
+                        <h4>Player Name: </h4>
                         <input type="text" id="playerName">
                         <br>
-                        Position:<br>
-                        <input type="text" id="playerPosition">
+                        <h4>Player Position:</h4>
+                        <select id="playerPosition" name="positions">
+                            <option value="Quarterback">Quarterback</option>
+                            <option value="Running Back">Running Back</option>
+                            <option value="Wide Receiver">Wide Receiver</option>
+                            <option value="Tight End">Tight End</option>
+                        </select>
                         <br>
-                        Number:<br>
+                        <h4>Player Number:</h4>
                         <input type="number" id="playerNumber">
-                        <br/><br />
-                        <input type="button" id="submit" value="Submit">
+                        
+                        <input type="button" id="submit" value="Submit" class="btn btn-primary">
                     </form>
 
 
