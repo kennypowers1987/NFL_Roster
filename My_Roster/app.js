@@ -1,4 +1,4 @@
-﻿var playerRoster = {};
+﻿var playerRoster = [];
 
 
 
@@ -21,7 +21,7 @@ $(document).ready(function () {
         var position = $("#playerPosition").val();
         var number = $("#playerNumber").val();
         var player = new Player(name, position, number);
-        playerRoster[player.id] = player;
+        playerRoster.push(player);
        
         $("#playerName").val('');
         $("#playerPosition").val('');
@@ -53,8 +53,11 @@ $(document).ready(function () {
 });
 
 function deletePlayer(i){
-
-    for (i in playerRoster) if(i = playerRoster[i].id) delete playerRoster[i];
-
+    debugger;
+    var idx = -1;
+    for (var p in playerRoster) if (playerRoster[p].id == i) {
+        idx = p;
+    }
+    if (idx != -1) { playerRoster.splice(idx,1);}
 
 }
