@@ -47,3 +47,18 @@
 
 
 }
+
+.availablePlayerTable{
+    width:50%;
+    float: left;
+    border-style: solid;
+    border-color: forestgreen;
+    border-width: 1px;
+}
+.lineupTable{
+    width:50%;
+    float: right;
+    border-style: solid;
+    border-color: forestgreen;
+    border-width: 1px;
+}
