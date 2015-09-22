@@ -104,6 +104,12 @@ function loadPlayersList(cl){
           { "data": "fullname" },
           { "data": "position" },
           { "data": "pro_team" },
+          {
+              "mRender": function (data, type, full) {
+                  //this.attr('data-player-id');
+                  return '<a data-player-id="' + full.id + '" class="btn btn-info btn-sm" href=#/' + full[0] + '>' + '+' + '</a>';
+              }
+          },
 
         ]
     });
@@ -117,6 +123,7 @@ function loadLineup(cl) {
           { "data": "fullname" },
           { "data": "position" },
           { "data": "pro_team" },
+
 
         ]
     });
