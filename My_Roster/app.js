@@ -7,34 +7,7 @@ var _players = [];
 var myPlayers = [];
 
 $(document).ready(function () {
-     
-    function Player(name, position, number) {
-        playerCount++;
-        this.name = name;
-        this.position = position;
-        this.number = number;
-        this.id = playerCount;
-    }
-
-
-    $("#submit").on('click', function () {
-        
-        var name = $("#playerName").val();
-        var position = $("#playerPosition").val();
-        var number = $("#playerNumber").val();
-        var player = new Player(name, position, number);
-        playerRoster.push(player);
-       
-        $("#playerName").val('');
-        $("#playerPosition").val('');
-        $("#playerNumber").val('');
-        displayPlayer();
-        
-    });
-
-
-
-
+    
     function displayPlayer() {
        // debugger;
     $("#roster").html("");
@@ -97,7 +70,7 @@ var playerService = function() {
 
 var ps = playerService();
 function loadPlayersList(cl){
-    $('#allPlayers').dataTable({
+    var table = $('#allPlayers').DataTable({
         paging: false,
         "data": _players,
         "columns": [
@@ -107,22 +80,48 @@ function loadPlayersList(cl){
           {
               "mRender": function (data, type, full) {
                   //this.attr('data-player-id');
-                  return '<a data-player-id="' + full.id + '" class="btn btn-info btn-sm" href=#/' + full[0] + '>' + '+' + '</a>';
+                  //return '<a data-player-id="' + full.id + '" class="btn btn-info btn-sm" href=#/' + full[0] + '>' + '+' + '</a>';
+                  return '<button>Click!</button>';
               }
           },
 
         ]
     });
 
+    $("#allPlayers tbody").on('click', 'button', function () {
+        var data = table.row($(this).parents('tr')).data();
+        var fullname = data.fullname;//$(this).attr("tr[0]");
+        var position = data.position;// $(this).attr("tr[1]");
+        var pro_team = data.pro_team;// $(this).attr("tr[2]");
+        //var id = $(this).attr("data-player-id")
+        var player = new Player(fullname, position, pro_team);
+        myPlayers.push(player);
+        _players.pop(player);
 
+        //$("#playerName").val('');
+        //$("#playerPosition").val('');
+        //$("#playerNumber").val('');
+        loadLineup();
+       // $('#myPlayers').DataTable().fnClearTable();
+       // $('#myPlayers').DataTable().fnDraw();
+
+    });
+    function Player(fullname, position, pro_team) {
+
+        this.name = fullname;
+        this.position = position;
+        this.team = pro_team;
+        //this.id = id;
+    }
 };
 function loadLineup(cl) {
-    $('#myPlayers').dataTable({
+  var lineup =  $('#myPlayers').DataTable({
+        paging: false,
         "data": myPlayers,
         "columns": [
-          { "data": "fullname" },
+          { "data": "name" },
           { "data": "position" },
-          { "data": "pro_team" },
+          { "data": "team" },
 
 
         ]
