@@ -98,13 +98,10 @@ function loadPlayersList(cl){
         myPlayers.push(player);
         _players.pop(player);
 
-        //$("#playerName").val('');
-        //$("#playerPosition").val('');
-        //$("#playerNumber").val('');
+      
         loadLineup();
-       // $('#myPlayers').DataTable().fnClearTable();
-       // $('#myPlayers').DataTable().fnDraw();
-
+       
+       
     });
     function Player(fullname, position, pro_team) {
 
@@ -116,7 +113,8 @@ function loadPlayersList(cl){
 };
 function loadLineup(cl) {
   var lineup =  $('#myPlayers').DataTable({
-        paging: false,
+      paging: false,
+      "bDestroy": true,
         "data": myPlayers,
         "columns": [
           { "data": "name" },
@@ -131,4 +129,4 @@ function loadLineup(cl) {
 };
 
 ps.loadPlayers(loadPlayersList);
-
+ps.loadPlayers(loadLineup);
